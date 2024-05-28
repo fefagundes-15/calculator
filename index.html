@@ -7,12 +7,16 @@
     <title>Calculadora</title>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="assets/icon.png" type="image/x-icon">
 </head>
 
 <body>
     <button onclick="toggleDarkMode()" class="dark-mode-btn">Dark Mode</button>
     <div class="calculator">
-        <input type="text" id="display" disabled>
+        <div id="container-display">
+            <input type="text" id="display" disabled>
+            <button onclick="deleteLastCharacter()">⌫</button> <!-- Botão para apagar o último caractere -->
+        </div>
         <div class="keys">
             <button onclick="clearDisplay()">C</button>
             <button onclick="appendToDisplay('(')"> ( </button>
