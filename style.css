@@ -13,7 +13,7 @@ body {
 }
 
 .dark-mode {
-    background-color: #181818;
+    background-color: #0e0e0e;
     /* Cor de fundo para modo escuro */
     color: #fff;
     /* Cor do texto para modo escuro */
@@ -29,13 +29,28 @@ body {
 }
 
 #display {
-    width: 87%;
+    width: 100%;
     padding: 20px;
     margin-bottom: 20px;
     font-size: 24px;
     background-color: white;
     border: 2px solid #b9b9b9;
     box-shadow: 2px 2px 1px #bdbdbd;
+}
+
+#container-display {
+    display: flex;
+}
+
+#container-display input[type="text"] {
+    flex: 1;
+    margin-right: 10px;
+    /* Espaçamento entre o campo de entrada e o botão */
+}
+
+#container-display button {
+    flex-shrink: 0;
+    margin: 5px 0 25px 0;
 }
 
 .keys {
