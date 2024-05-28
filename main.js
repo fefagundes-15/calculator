@@ -36,23 +36,42 @@ function invertSign() {
     }
 }
 
-// Dark mode
+// Função para alternar entre os modos claro e escuro
 function toggleDarkMode() {
     const body = document.body;
     const darkModeBtn = document.querySelector('.dark-mode-btn');
     const calculator = document.querySelector('.calculator');
     const button = document.querySelector('button');
 
-    // Alterar a classe do corpo para alternar entre o modo escuro e claro
+    // Verifica se o modo escuro está ativado atualmente
+    const isDarkMode = body.classList.contains('dark-mode');
+
+    // Alterna a classe do corpo para alternar entre o modo escuro e claro
     body.classList.toggle('dark-mode');
 
-    // Verificar se a classe 'dark-mode' está presente no corpo e alterar o texto do botão
+    // Verifica se o modo escuro foi ativado ou desativado e armazena essa preferência
     if (body.classList.contains('dark-mode')) {
-        darkModeBtn.textContent = 'Light Mode';
+        localStorage.setItem('darkModeEnabled', 'true');
+    } else {
+        localStorage.removeItem('darkModeEnabled');
+    }
+
+    // Altera o texto do botão de acordo com o modo atual
+    darkModeBtn.textContent = isDarkMode ? 'Dark Mode' : 'Light Mode';
+
+    // Altera as cores de fundo dependendo do modo
+    if (body.classList.contains('dark-mode')) {
         calculator.style.backgroundColor = '#5a5a5a';
     } else {
-        darkModeBtn.textContent = 'Dark Mode';
         calculator.style.backgroundColor = '#f1f1f1';
         button.style.backgroundColor = '#e4e4e4';
     }
 }
+
+// Verifica se o modo escuro estava ativado antes e aplica-o ao carregar a página
+window.addEventListener('DOMContentLoaded', () => {
+    const isDarkModeEnabled = localStorage.getItem('darkModeEnabled');
+    if (isDarkModeEnabled === 'true') {
+        toggleDarkMode();
+    }
+});
