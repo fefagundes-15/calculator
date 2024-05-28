@@ -17,6 +17,12 @@ function calculate() {
     document.getElementById('display').value = result;
 }
 
+// Função para apagar o último caractere
+function deleteLastCharacter() {
+    let display = document.getElementById('display');
+    display.value = display.value.slice(0, -1); // Remove o último caractere
+}
+
 // Inverter sinal
 function invertSign() {
     let expression = document.getElementById('display').value;
@@ -36,7 +42,7 @@ function invertSign() {
     }
 }
 
-// Função para alternar entre os modos claro e escuro
+// Dark Mode
 function toggleDarkMode() {
     const body = document.body;
     const darkModeBtn = document.querySelector('.dark-mode-btn');
