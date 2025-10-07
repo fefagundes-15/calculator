@@ -170,36 +170,36 @@ body.dark-mode button:not(.operator):not(.clear):not(.equals):hover {
 }
 
 body.dark-mode .operator {
-    background-color: #ffa000;
+    background-color: var(--operator-color);
 }
 
 body.dark-mode .operator:hover {
-    background-color: color-mix(in srgb, #ffa000, #fff 15%);
+    background-color: color-mix(in srgb, var(--operator-color), #fff 15%);
 }
 
 body.dark-mode .clear {
-    background-color: #e44338;
+    background-color: var(--clear-color);
 }
 
 body.dark-mode .clear:hover {
-    background-color: color-mix(in srgb, #e44338, #fff 15%);
+    background-color: color-mix(in srgb, var(--clear-color), #fff 15%);
 }
 
 body.dark-mode .equals {
-    background-color: #407eeb;
+    background-color: var(--equals-color);
 }
 
 body.dark-mode .equals:hover {
-    background-color: color-mix(in srgb, #407eeb, #fff 15%);
+    background-color: color-mix(in srgb, var(--equals-color), #fff 15%);
 }
 
 body.dark-mode .dark-mode-btn {
-    background-color: #ffa000;
+    background-color: var(--operator-color);
     color: #1a1a1a;
     box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
 }
 
 body.dark-mode .dark-mode-btn:hover {
-    background-color: color-mix(in srgb, #ffa000, #1a1a1a 15%);
+    background-color: color-mix(in srgb, var(--operator-color), #1a1a1a 15%);
     color: #ffffff;
 }
