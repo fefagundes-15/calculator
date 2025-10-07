@@ -1,108 +1,205 @@
+:root {
+    --background-color: #f0efef;
+    --operator-color: #ffa000;
+    --clear-color: #e44338;
+    --equals-color: #407eeb;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-    transition: background-color 0.5s ease;
-    background-color: #fff;
-    /* Cor de fundo padrão */
-    color: #333;
-    /* Cor do texto padrão */
-}
-
-.dark-mode {
-    background-color: #0e0e0e;
-    /* Cor de fundo para modo escuro */
-    color: #fff;
-    /* Cor do texto para modo escuro */
+    min-height: 100vh;
+    background-color: var(--background-color);
 }
 
 .calculator {
-    text-align: center;
-    background-color: #f1f1f1;
-    padding: 25px;
-    border-radius: 10px;
-    transition: background-color 0.5s ease;
-    box-shadow: 5px 5px 2px #bdbdbd;
-    border: 2px solid #bdbdbd;
-}
-
-#display {
     width: 100%;
-    padding: 20px;
-    margin-bottom: 20px;
-    font-size: 24px;
-    background-color: white;
-    border: 2px solid #b9b9b9;
-    box-shadow: 2px 2px 1px #bdbdbd;
+    max-width: 20rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 0 1rem;
 }
 
-#container-display {
-    display: flex;
+.historic {
+    color: #777;
+    width: 100%;
+    padding: .6rem 1rem;
+    font-size: 1em;
+    text-align: right;
+    border-top: 10px solid #fff;
+    border-left: 10px solid #fff;
+    border-right: 10px solid #fff;
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+    background-color: color-mix(in srgb, #fff, #000 10%);
 }
 
-#container-display input[type="text"] {
-    flex: 1;
-    margin-right: 10px;
-    /* Espaçamento entre o campo de entrada e o botão */
+.display {
+    color: black;
+    width: 100%;
+    padding: 1rem;
+    font-size: 2em;
+    text-align: right;
+    border-top: none;
+    border-left: 10px solid #fff;
+    border-right: 10px solid #fff;
+    border-bottom: 10px solid #fff;
+    border-radius: 10px 10px 0 0;
+    background-color: color-mix(in srgb, #fff, #000 10%);
 }
 
-#container-display button {
-    flex-shrink: 0;
-    margin: 5px 0 25px 0;
-}
-
-.keys {
+.buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
+    gap: .6rem;
+    grid-template-rows: repeat(5, auto);
+    padding: .6rem;
 }
 
 button {
-    padding: 15px;
-    font-size: 20px;
-    border: 1px solid #9b9b9b;
-    box-shadow: 2px 2px 1px #bdbdbd;
+    padding: 1rem;
+    font-size: 1.5em;
     cursor: pointer;
-    background-color: #e4e4e4;
+    border: none;
+    background-color: var(--background-color);
     border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #dfdfdf;
+    background-color: color-mix(in srgb, var(--background-color), #000 13%);
 }
 
-button:active {
-    background-color: #ccc;
-    /* Cor de fundo quando pressionado */
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
-    /* Sombra quando pressionado */
-    transform: translateY(0.5px);
-    /* Efeito de deslocamento para baixo quando pressionado */
+button.operator {
+    background-color: var(--operator-color);
+    color: #fff;
 }
 
-#calculate {
-    background-color: #5858ff;
+button.operator:hover {
+    background-color: color-mix(in srgb, var(--operator-color), #000 13%);
 }
 
-#calculate:hover {
-    background-color: #5252da;
+button.clear {
+    background-color: var(--clear-color);
+    color: #fff;
 }
 
-#calculate:active {
-    background-color: #3f3fbb;
-    /* Cor de fundo quando pressionado */
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
-    /* Sombra quando pressionado */
-    transform: translateY(0.5px);
-    /* Efeito de deslocamento para baixo quando pressionado */
+button.clear:hover {
+    background-color: color-mix(in srgb, var(--clear-color), #000 13%);
 }
 
+button.equals {
+    background-color: var(--equals-color);
+    color: #fff;
+    grid-row: span 2;
+}
+
+button.equals:hover {
+    background-color: color-mix(in srgb, var(--equals-color), #000 13%);
+}
+
+/* Dark mode */
+/* Dark Mode Button Styles */
 .dark-mode-btn {
     position: fixed;
-    top: 10px;
-    right: 10px;
-    z-index: 9999;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: var(--operator-color);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.dark-mode-btn:hover {
+    background-color: color-mix(in srgb, var(--operator-color), #000 15%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+body.dark-mode .calculator {
+    background-color: #2d2d2d;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .historic {
+    background-color: #3d3d3d;
+    color: #cccccc;
+    border-color: #2d2d2d;
+}
+
+body.dark-mode .display {
+    background-color: #3d3d3d;
+    color: #ffffff;
+    border-color: #2d2d2d;
+}
+
+body.dark-mode button:not(.operator):not(.clear):not(.equals) {
+    background-color: #4d4d4d;
+    color: #ffffff;
+}
+
+body.dark-mode button:not(.operator):not(.clear):not(.equals):hover {
+    background-color: color-mix(in srgb, #4d4d4d, #fff 15%);
+}
+
+body.dark-mode .operator {
+    background-color: #ffa000;
+}
+
+body.dark-mode .operator:hover {
+    background-color: color-mix(in srgb, #ffa000, #fff 15%);
+}
+
+body.dark-mode .clear {
+    background-color: #e44338;
+}
+
+body.dark-mode .clear:hover {
+    background-color: color-mix(in srgb, #e44338, #fff 15%);
+}
+
+body.dark-mode .equals {
+    background-color: #407eeb;
+}
+
+body.dark-mode .equals:hover {
+    background-color: color-mix(in srgb, #407eeb, #fff 15%);
+}
+
+body.dark-mode .dark-mode-btn {
+    background-color: #ffa000;
+    color: #1a1a1a;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .dark-mode-btn:hover {
+    background-color: color-mix(in srgb, #ffa000, #1a1a1a 15%);
+    color: #ffffff;
 }
