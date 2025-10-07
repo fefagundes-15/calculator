@@ -4,44 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora</title>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css">
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="assets/icon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+
+    <script src="https://kit.fontawesome.com/1a586228df.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
-    <button onclick="toggleDarkMode()" class="dark-mode-btn">Dark Mode</button>
     <div class="calculator">
-        <div id="container-display">
-            <input type="text" id="display" disabled>
-            <button onclick="deleteLastCharacter()">⌫</button> <!-- Botão para apagar o último caractere -->
-        </div>
-        <div class="keys">
-            <button onclick="clearDisplay()">C</button>
-            <button onclick="appendToDisplay('(')"> ( </button>
-            <button onclick="appendToDisplay(')')"> ) </button>
-            <button onclick="appendToDisplay('/')"> ÷ </button>
-            <button onclick="appendToDisplay('7')">7</button>
-            <button onclick="appendToDisplay('8')">8</button>
-            <button onclick="appendToDisplay('9')">9</button>
-            <button onclick="appendToDisplay('*')"> x </button>
-            <button onclick="appendToDisplay('4')">4</button>
-            <button onclick="appendToDisplay('5')">5</button>
-            <button onclick="appendToDisplay('6')">6</button>
-            <button onclick="appendToDisplay('-')"> - </button>
-            <button onclick="appendToDisplay('1')">1</button>
-            <button onclick="appendToDisplay('2')">2</button>
-            <button onclick="appendToDisplay('3')">3</button>
-            <button onclick="appendToDisplay('+')"> + </button>
-            <button onclick="invertSign()">+/-</button> <!-- Inverter o sinal -->
-            <button onclick="appendToDisplay('0')">0</button>
-            <button onclick="appendToDisplay('.')">.</button>
-            <button id="calculate" onclick="calculate()">=</button>
+        <input type="text" class="historic" id="historic" disabled>
+        <input type="text" class="display" id="display" disabled>
+        <div class="buttons">
+            <button data-value="delete" class="clear"><i class="fa-solid fa-delete-left"></i></button>
+            <button data-value="C" class="clear">C</button>
+            <button data-value="/" class="operator">/</button>
+            <button data-value="*" class="operator">*</button>
+            <button data-value="7">7</button>
+            <button data-value="8">8</button>
+            <button data-value="9">9</button>
+            <button data-value="-" class="operator">-</button>
+            <button data-value="4">4</button>
+            <button data-value="5">5</button>
+            <button data-value="6">6</button>
+            <button data-value="+" class="operator">+</button>
+            <button data-value="1">1</button>
+            <button data-value="2">2</button>
+            <button data-value="3">3</button>
+            <button data-value="=" class="equals">=</button>
+            <button data-value="±">±</button>
+            <button data-value="0">0</button>
+            <button data-value="." class="decimal">.</button>
         </div>
     </div>
-
-    <script src="main.js"></script>
+    <script src="scripts.js"></script>
 </body>
 
 </html>
